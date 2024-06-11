@@ -6,7 +6,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import ProfielPage from './profiel'; 
 
+
+
 const Stack = createNativeStackNavigator();
+
+function checkCredentials(username, password) {
+  if (username == 'rana.mardikhi@gmail.com' && password == 'vista898') {
+    return true;
+  }
+  return false;
+}
 
 function LoginPage({ navigation }) {
   const [username, setUsername] = useState('');
@@ -16,7 +25,10 @@ function LoginPage({ navigation }) {
     // Voeg hier de inlogfunctionaliteit toe
     console.log('Username:', username);
     console.log('Password:', password);
-    navigation.navigate('Profiel');
+    if (checkCredentials(username, password) == true) {
+      navigation.navigate('Profiel');
+    }
+   
   };
 
   return (
@@ -54,7 +66,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginPage}/>
-        <Stack.Screen name="Profiel" component={ProfielPage}/>
+        <Stack.Screen name="Profiel" component={ProfielPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
