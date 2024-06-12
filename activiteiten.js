@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, ScrollView, Image } from 'react-native';
 
 const img1 = require('./images/img1.jpg');
+const img2 = require('./images/img2.jpg');
 
 export default function PlanPage() {
   return (
@@ -14,6 +15,7 @@ export default function PlanPage() {
       <Image source={img1} style={styles.image} />
       <Text style={styles.img1title}>Opdrukken</Text>
       <Text style={styles.img1tekst}>Één van de meest onderschatte oefeningen en vaak verkeerd uitgevoerd. Opdrukken is een weerstandstraining waarbij je je eigen lichaamsgewicht gebruikt. Ga met gestrekte armen en benen op handen en voeten op de grond liggen, met je handpalmen net iets verder uit elkaar dan je schouders.  Laat jezelf zakken totdat je kin de vloer raakt en duw je lichaam daarna weer omhoog. Houd je rug recht en je ellebogen mogen niet op slot zitten. Als je het goed doet, voel je het in je buik, bovenarmen en je rug.</Text>
+       <Image sourse={img2} style={styles.image2}/>
     </ScrollView>
   );
 }
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     top: 20,
     fontSize: 19,
     fontWeight: 'bold',
-    marginLeft: 50,
+    marginLeft: 40,
     color: 'red',
   },
   toelichting: {
@@ -55,5 +57,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     lineHeight: 23,
+  },
+  image2: {
+  top: 90,
+  margin: 'auto', 
+  width: 350,
+  height: 350,
   },
 });
