@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import ProfielPage from './profiel'; 
+import PlanPage from './plan';  
 
 
 
@@ -67,6 +68,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginPage}/>
         <Stack.Screen name="Profiel" component={ProfielPage} />
+         <Stack.Screen name="Plan" component={PlanPage} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );

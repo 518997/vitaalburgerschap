@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
-export default function ProfielPage() {
+
+export default function ProfielPage({navigation}) {
   const [sex, setSex] = useState('');
   const [age, setAge] = useState('');
   const [height, setHeight] = useState('');
@@ -12,6 +11,13 @@ export default function ProfielPage() {
   const [activityMinutes, setActivityMinutes] = useState('');
   const [calories, setCalories] = useState(null);
   const [daysToReachGoal, setDaysToReachGoal] = useState(null);
+
+  const handlePlanButtonClick = () => {
+    navigation.navigate('Plan'); 
+  };
+
+
+
 
   const calculateRMR = () => {
     const w = parseFloat(weight) || 0;
@@ -103,40 +109,18 @@ export default function ProfielPage() {
         onChangeText={setActivityMinutes}
         keyboardType="numeric"
       />
-      <Button title="Bereken Calorieën" onPress={calculateCalories} />
+      <Button title="Bereken Calorieën" onPress={handleCalculate} />
+      
       {calories != null && (
         <>
-          <Text style={styles.result}>Dagelijkse caloriebehoefte: {calculateRMR().toFixed(2)} kcal</Text>
-          <Text style={styles.result}>Dagen om gewenst gewicht te bereiken: {adjustCaloriesForGoal()}</Text>
+               <Text style={styles.result}>Dagelijkse caloriebehoefte: {calculateRMR().toFixed(2)} kcal</Text>
+               <Text style={styles.result}>Dagen om gewenst gewicht te bereiken: {daysToReachGoal}</Text>
         </>
       )}
-
-      <Button titile="Begin met activiteit" onPress={() => navigation.navigate('PlanPage')}/>
+       <Button style={styles.button} title="Naar Plan" onPress={handlePlanButtonClick} />
     </ScrollView>
   );
 }
-
-function PlanPage() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Plan Pagina</Text>
-    </View>
-  );
-}
-
-const Stack = createStackNavigator();
-
- function Profiel() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="ProfielPage">
-        <Stack.Screen name="ProfielPage" component={ProfielPage} />
-        <Stack.Screen name="PlanPage" component={PlanPage} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
 
 const styles = StyleSheet.create({
   container: {
@@ -162,5 +146,8 @@ const styles = StyleSheet.create({
     fontSize: 19,
     marginVertical: 20,
     color: 'red',
+  },
+  button: {
+    top: 90,
   },
 });
