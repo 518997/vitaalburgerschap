@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ScrollView, Button, Alert } from 'react-native';
 
 
 export default function ProfielPage({navigation}) {
@@ -12,12 +12,13 @@ export default function ProfielPage({navigation}) {
   const [calories, setCalories] = useState(null);
   const [daysToReachGoal, setDaysToReachGoal] = useState(null);
 
-  const handlePlanButtonClick = () => {
-    navigation.navigate('Plan'); 
+  const handleActiviteitenButtonClick = () => {
+    if (sex !== '', age !=='', height !== '', weight !== '', desiredWeight !== '', activityMinutes !== '') {
+       navigation.navigate('Activiteiten'); 
+    } else {
+      Alert.alert('Waarschuwing', 'Vul alle invoervelden in.');
+    }
   };
-
-
-
 
   const calculateRMR = () => {
     const w = parseFloat(weight) || 0;
@@ -117,7 +118,7 @@ export default function ProfielPage({navigation}) {
                <Text style={styles.result}>Dagen om gewenst gewicht te bereiken: {daysToReachGoal}</Text>
         </>
       )}
-       <Button style={styles.button} title="Naar Plan" onPress={handlePlanButtonClick} />
+       <Button title="Naar Activiteiten" onPress={handleActiviteitenButtonClick} />
     </ScrollView>
   );
 }
@@ -146,8 +147,5 @@ const styles = StyleSheet.create({
     fontSize: 19,
     marginVertical: 20,
     color: 'red',
-  },
-  button: {
-    top: 90,
   },
 });
