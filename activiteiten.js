@@ -2,14 +2,13 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView, Image, Button } from 'react-native';
 
+
+
 const img1 = require('./images/img1.jpg');
 const img2 = require('./images/img2.jpg');
 const img3 = require('./images/img3.jpg');
 const img4 = require('./images/img4.jpg');
 
-const handleVoedingButtonClick = () => {
-  navigation.navigate('Activiteiten');
-}
 
 export default function PlanPage() {
   return (
@@ -31,8 +30,6 @@ export default function PlanPage() {
       <Image source={img4} style={styles.image4} />
       <Text style={styles.img4title}>Touwtje springen</Text>
       <Text style={styles.img4tekst}>Door touwtje te springen gaat je hartslag omhoog. Het is heel simpel en je verbrandt veel calorieën. 15-20 minuten touwtje springen maakt de spieren in je armen en benen sterker, maar het is ook goed voor je hart (je hart is namelijk ook een spier).</Text>
-      
-      <Button title="Naar Voeding" onPress={handleVoedingButtonClick}/>
     </ScrollView>
   );
 }

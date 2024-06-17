@@ -9,6 +9,7 @@ import ActiviteitenPage from './activiteiten';
 
 
 
+
 const Stack = createNativeStackNavigator();
 
 function checkCredentials(username, password) {
