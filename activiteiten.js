@@ -1,9 +1,15 @@
 
 import React from 'react';
-import { StyleSheet, Text, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, ScrollView, Image, Button } from 'react-native';
 
 const img1 = require('./images/img1.jpg');
 const img2 = require('./images/img2.jpg');
+const img3 = require('./images/img3.jpg');
+const img4 = require('./images/img4.jpg');
+
+const handleVoedingButtonClick = () => {
+  navigation.navigate('Activiteiten');
+}
 
 export default function PlanPage() {
   return (
@@ -15,7 +21,18 @@ export default function PlanPage() {
       <Image source={img1} style={styles.image} />
       <Text style={styles.img1title}>Opdrukken</Text>
       <Text style={styles.img1tekst}>Één van de meest onderschatte oefeningen en vaak verkeerd uitgevoerd. Opdrukken is een weerstandstraining waarbij je je eigen lichaamsgewicht gebruikt. Ga met gestrekte armen en benen op handen en voeten op de grond liggen, met je handpalmen net iets verder uit elkaar dan je schouders.  Laat jezelf zakken totdat je kin de vloer raakt en duw je lichaam daarna weer omhoog. Houd je rug recht en je ellebogen mogen niet op slot zitten. Als je het goed doet, voel je het in je buik, bovenarmen en je rug.</Text>
-       <Image sourse={img2} style={styles.image2}/>
+      <Image source={img2} style={styles.image2} />
+      <Text style={styles.img2title}>Brug tegenovergesteld met arm en been</Text>
+      <Text style={styles.img2tekst}>Ga op je rug liggen met je linkerknie gebogen en je voet plat op de vloer. Je rechterbeen moet omhoog naar het plafond wijzen en je rechterarm ligt naast je lichaam. Reik ook met je linkerarm naar het plafond. Beweeg nu tegelijkertijd je rechterbeen naar rechts en je linkerarm naar links zonder je heupen of schouders te bewegen. Breng je arm en been terug naar het midden en richting het plafond</Text>
+      <Image source={img3} style={styles.image3} />
+      <Text style={styles.img3title}>Scale Pose</Text>
+      <Text style={styles.img3tekst}>Ga comfortabel in kleermakerspositie zitten en leg je handen naast je heupen op de grond.
+        Span je bekkenbodem aan (alsof je je plas moet ophouden), druk jezelf op je handen omhoog totdat je hele lichaam van de grond is. Houd deze positie 3 seconden vast en kom dan langzaam naar beneden. Zo train je je armen en buikspieren. Dit is wel een lastige oefening. Als het je niet lukt je hele lichaam omhoog te tillen: laat je voeten op de grond en breng alleen je billen omhoog.</Text>
+      <Image source={img4} style={styles.image4} />
+      <Text style={styles.img4title}>Touwtje springen</Text>
+      <Text style={styles.img4tekst}>Door touwtje te springen gaat je hartslag omhoog. Het is heel simpel en je verbrandt veel calorieën. 15-20 minuten touwtje springen maakt de spieren in je armen en benen sterker, maar het is ook goed voor je hart (je hart is namelijk ook een spier).</Text>
+      
+      <Button title="Naar Voeding" onPress={handleVoedingButtonClick}/>
     </ScrollView>
   );
 }
@@ -33,35 +50,87 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   toelichting: {
-  top: 30,
-  fontSize: 15,
-  marginLeft: 10,
-  marginRight: 10,
+   top: 30,
+   fontSize: 15,
+   marginLeft: 10,
+   marginRight: 10,
   lineHeight: 23,
   },
   image: {
-  top: 60,
-  margin: 'auto', 
-  width: 350,
-  height: 350,
+   top: 60,
+   margin: 'auto', 
+   width: 350,
+   height: 350,
   },
   img1title: {
     color: 'red',
-    top: 70,
+    top: 80,
     marginLeft: 20,
     fontWeight: 'bold',
   },
   img1tekst: {
-    top: 80,
+    top: 90,
     fontSize: 15,
     marginLeft: 10,
     marginRight: 10,
     lineHeight: 23,
   },
   image2: {
-  top: 90,
-  margin: 'auto', 
-  width: 350,
-  height: 350,
+   top: 120,
+   margin: 'auto', 
+   width: 350,
+   height: 350,
+  },
+  img2title: {
+   color: 'red',
+   top: 140,
+   marginLeft: 20,
+   fontWeight: 'bold',
+  },
+   img2tekst: {
+    top: 150,
+    fontSize: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    lineHeight: 23,
+  },
+  image3: {
+   top: 150,
+   margin: 'auto' , 
+   width: 350,
+   height: 350,
+  },
+  img3title: {
+   color: 'red',
+   top: 170,
+   marginLeft: 20,
+   fontWeight: 'bold',
+  },
+   img3tekst: {
+    top: 180,
+    fontSize: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    lineHeight: 23,
+  },
+   image4: {
+    top: 200,
+    margin: 'auto', 
+    width: 350,
+    height: 350,
+  },
+  img4title: {
+   color: 'red',
+   top: 220,
+   marginLeft: 20,
+   fontWeight: 'bold',
+  },
+   img4tekst: {
+    top: 230,
+    fontSize: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    lineHeight: 23,
+    marginBottom: 250,
   },
 });
